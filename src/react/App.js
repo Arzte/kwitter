@@ -1,23 +1,19 @@
 import React from "react";
-import "./App.css";
-import Root from "./compontents/Root";
-import { connect } from "react-redux";
-import { Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import Home from "./Home";
+import Profile from "./Profile";
+import NotFound from "./NotFound";
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <Route path="/" render={() => <Root />} />
-      </div>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/profiles/:username" component={Profile} />
+        <Route path="*" component={NotFound} />
+      </Switch>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {};
-};
-
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
