@@ -5,7 +5,7 @@ import App from "./App";
 import { createStore } from "redux";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
-import Kwitter from "./reducers/index";
+import Kwitter from "../redux/reducers/index";
 import { Provider } from "react-redux";
 
 const store = createStore(
