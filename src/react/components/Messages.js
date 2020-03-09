@@ -23,7 +23,7 @@ class Messages extends Component {
           {this.props.messages.map(message => (
             <div className={message.id} key={message.id}>
               {message.text}
-              {message.id}
+              
               {message.username === this.props.user && (
                 <button onClick={e => this.handleDelete(e, message.id)}>
                   Delete
