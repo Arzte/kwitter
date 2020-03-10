@@ -8,7 +8,7 @@ class PostMessage extends Component {
     this.state = { text: "" };
   }
   handleChange = event => {
-    console.log("ppppp");
+    
     let text = { ...this.state.text };
     text = event.target.value;
 
@@ -21,19 +21,21 @@ class PostMessage extends Component {
     event.preventDefault();
     let messageData = this.state.text;
     this.props.postMessage(messageData);
-    this.setState({ text: '' });
+    let resetState = {...this.state.text}
+    resetState = ""
+    this.setState({ text: resetState });
   };
 
   render() {
     return (
       <div>
-        test
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="newPost">Post a new Message</label>
           <input
             type="text"
             id="newPost"
             name="newPost"
+            value={this.state.text}
             onChange={this.handleChange}
           />
           <button>Submit Post</button>

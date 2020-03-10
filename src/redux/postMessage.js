@@ -17,7 +17,6 @@ export const postMessage = messageData => (dispatch, getState) => {
 
   const token = getState().auth.login.result.token;
 
-  //dispatch(getMessages());
 
   return fetch(url, {
     method: "POST",

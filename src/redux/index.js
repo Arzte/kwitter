@@ -6,6 +6,8 @@ import { reducers as authReducers } from "./auth";
 import { messageReducers } from "./messages";
 import { postMessageReducer } from "./postMessage";
 import {deleteMessageReducer} from './deleteMessage'
+import {likeMessageReducer} from './likes'
+
 export * from "./auth";
 
 export const history = createBrowserHistory({
@@ -18,7 +20,8 @@ export const store = configureStore({
     auth: combineReducers(authReducers),
     messages: combineReducers(messageReducers),
     postMessage: combineReducers(postMessageReducer),
-    deleteMessage: combineReducers(deleteMessageReducer)
+    deleteMessage: combineReducers(deleteMessageReducer),
+    likeMessage: combineReducers(likeMessageReducer)
   },
   preloadedState: {},
   devTools: process.env.NODE_ENV !== "production"

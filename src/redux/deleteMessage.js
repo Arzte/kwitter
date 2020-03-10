@@ -22,7 +22,6 @@ export const deleteMessage = (e, id) => (dispatch, getState) => {
   return fetch(url + "/" + id, {
     method: "DELETE",
     headers: { Authorization: "Bearer " + token, ...jsonHeaders }
-    //body: JSON.stringify({ id: id })
   })
     .then(handleJsonResponse)
     .then(result => {
