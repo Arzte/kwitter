@@ -1,7 +1,7 @@
 import React from "react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
-import { register, login } from "../../redux";
+import { register } from "../../redux";
 import "./LoginForm.css";
 
 class RegisterForm extends React.Component {
@@ -10,16 +10,6 @@ class RegisterForm extends React.Component {
   handleLogin = e => {
     e.preventDefault();
     this.props.register(this.state);
-    // after registering on the API,
-    // we want to login the user
-
-    // define a bew login state, since
-    // login doesn't have/want displayname
-    // const loginState = {
-    //   username: this.state.username,
-    //   password: this.state.password
-    // };
-    // this.props.login(loginState);
   };
 
   handleChange = e => {
@@ -68,9 +58,9 @@ class RegisterForm extends React.Component {
 
 export default connect(
   state => ({
-    result: state.auth.register.result,
-    loading: state.auth.register.loading,
-    error: state.auth.register.error
+    result: state.register.register.result,
+    loading: state.register.register.loading,
+    error: state.register.register.error
   }),
-  { register, login }
+  { register }
 )(RegisterForm);
