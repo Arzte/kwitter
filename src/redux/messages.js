@@ -4,7 +4,7 @@ import {
   createActions,
   createReducer,
   getInitStateFromStorage,
-  asyncCases,
+  asyncCases
 } from "./helpers";
 
 const url = domain + "/messages";
@@ -25,8 +25,6 @@ export const getMessages = () => dispatch => {
     })
     .catch(err => Promise.reject(dispatch(GETMESSAGES.FAIL(err))));
 };
-
-
 
 const initialState = {
   result: null,

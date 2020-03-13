@@ -10,14 +10,13 @@ import {
 import { getMessages } from "./messages";
 import { store } from "../redux/index";
 
-const url = domain ;
+const url = domain;
 
 const LIKEMESSAGE = createActions("likeMessage");
 export const likeMessage = (e, id) => (dispatch, getState) => {
   dispatch(LIKEMESSAGE.START());
 
   const token = getState().auth.login.result.token;
-
 
   return fetch(url + "/likes", {
     method: "POST",

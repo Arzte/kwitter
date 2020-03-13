@@ -3,12 +3,9 @@ import { postMessage } from "../../redux/postMessage";
 import React, { Component } from "react";
 
 class PostMessage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: "" };
-  }
+  state = { text: "" };
+
   handleChange = event => {
-    
     let text = { ...this.state.text };
     text = event.target.value;
 
@@ -17,12 +14,12 @@ class PostMessage extends Component {
     });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
     let messageData = this.state.text;
     this.props.postMessage(messageData);
-    let resetState = {...this.state.text}
-    resetState = ""
+    let resetState = { ...this.state.text };
+    resetState = "";
     this.setState({ text: resetState });
   };
 

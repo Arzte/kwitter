@@ -10,35 +10,32 @@ class Messages extends Component {
     this.props.getMessages();
   }
   handleDelete = (event, key) => {
-   
-
     this.props.deleteMessage(event, key);
   };
   handleLike = (event, key) => {
     this.props.likeMessage(event, key);
   };
   render() {
-    
     if (this.props.messages === null) {
       return <div></div>;
     } else {
       return (
         <div>
-            
           <Menu />
           {this.props.messages.map(message => (
             <div className={message.id} key={message.id}>
-              {message.text}{message.id}{message.likes["id"]}
+              {message.text}
+              {message.id}
+              {message.likes["id"]}
               likes:{message.likes.length}
               {message.username === this.props.user && (
                 <button onClick={e => this.handleDelete(e, message.id)}>
                   Delete
                 </button>
               )}
-              <button onClick={e=>this.props.likeMessage(e, message.id)}>
+              <button onClick={e => this.props.likeMessage(e, message.id)}>
                 Like
               </button>
-              
             </div>
           ))}
         </div>
@@ -55,6 +52,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getMessages, deleteMessage, likeMessage })(
-  Messages
-);
+export default connect(mapStateToProps, {
+  getMessages,
+  deleteMessage,
+  likeMessage
+})(Messages);
