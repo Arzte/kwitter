@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import Menu from "./Menu";
 import { deleteMessage } from "../../redux/deleteMessage";
 import { likeMessage } from "../../redux/likes";
+import { userIsAuthenticated } from "../HOCs";
+
 
 class Messages extends Component {
   componentDidMount() {
@@ -21,7 +23,7 @@ class Messages extends Component {
     } else {
       return (
         <div>
-          <Menu />
+          <Menu isAuthenticated={this.props.isAuthenticated} />
           {this.props.messages.map(message => (
             <div className={message.id} key={message.id}>
               {message.text}
@@ -52,8 +54,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {
+
+export default userIsAuthenticated(connect(mapStateToProps, {
   getMessages,
   deleteMessage,
   likeMessage
-})(Messages);
+})(Messages));
