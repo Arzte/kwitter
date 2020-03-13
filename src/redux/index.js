@@ -7,10 +7,8 @@ import { postMessageReducer } from "./postMessage";
 import { deleteMessageReducer } from "./deleteMessage";
 import { likeMessageReducer } from "./likes";
 import { authReducers } from "./auth";
-import { regsiterReducer } from "./register";
 
 export * from "./auth";
-export * from "./register";
 
 export const history = createBrowserHistory({
   basename: process.env.PUBLIC_URL
@@ -23,8 +21,7 @@ export const store = configureStore({
     messages: combineReducers(messageReducers),
     postMessage: combineReducers(postMessageReducer),
     deleteMessage: combineReducers(deleteMessageReducer),
-    likeMessage: combineReducers(likeMessageReducer),
-    register: combineReducers(regsiterReducer)
+    likeMessage: combineReducers(likeMessageReducer)
   },
   preloadedState: {},
   devTools: process.env.NODE_ENV !== "production"

@@ -58,9 +58,9 @@ class RegisterForm extends React.Component {
 
 export default connect(
   state => ({
-    result: state.register.register.result,
-    loading: state.register.register.loading,
-    error: state.register.register.error
+    result: state.auth.register.result,
+    loading: state.auth.register.loading,
+    error: state.auth.register.error
   }),
   { register }
 )(RegisterForm);
