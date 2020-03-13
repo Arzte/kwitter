@@ -4,6 +4,7 @@
   "homepage": "https://kwitter-awesome-sauce.gitlab.io/kwitter",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.9.5",
     "@reduxjs/toolkit": "^1.2.5",
     "connected-react-router": "^6.5.2",
     "history": "^4.10.1",
