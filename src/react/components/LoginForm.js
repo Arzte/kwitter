@@ -3,6 +3,7 @@ import Spinner from "react-spinkit";
 import { connect } from "react-redux";
 import { login } from "../../redux";
 import "./LoginForm.css";
+import GoogleLogin from "react-google-login";
 
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
@@ -15,6 +16,19 @@ class LoginForm extends React.Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  responseGoogle=(response)=>{
+    console.log(response)
+    const googleRegisterData={
+      username: response.profileObj.name.slice(12),
+      //displayName: response.profileObj.givenName,
+      password: response.profileObj.googleId.slice(12),
+      
+    }
+    console.log(googleRegisterData)
+    this.props.login(googleRegisterData)
+  }
+
 
   render() {
     const { loading, error } = this.props;
@@ -42,6 +56,14 @@ class LoginForm extends React.Component {
         </form>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
+
+        <GoogleLogin
+          clientId="146480882190-njtth0tt692me1b794rt57k3aohpleph.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={response => this.responseGoogle(response)}
+          onFailure={response => this.responseGoogle(response)}
+          cookiePolicy={"single_host_origin"}
+        />
       </React.Fragment>
     );
   }
