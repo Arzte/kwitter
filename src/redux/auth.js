@@ -40,12 +40,36 @@ export const logout = () => (dispatch, getState) => {
     .catch(err => Promise.reject(dispatch(LOGOUT.FAIL(err))));
 };
 
-export const reducers = {
+const REGISTER = createActions("register");
+export const register = registerData => dispatch => {
+  dispatch(REGISTER.START());
+
+  return fetch(domain + "/users", {
+    method: "POST",
+    headers: jsonHeaders,
+    body: JSON.stringify(registerData)
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      dispatch(REGISTER.SUCCESS(result));
+      let loginData = {
+        username: registerData.username,
+        password: registerData.password
+      };
+      dispatch(login(loginData));
+    })
+    .catch(err => Promise.reject(dispatch(REGISTER.FAIL(err))));
+};
+
+export const authReducers = {
   login: createReducer(getInitStateFromStorage("login", asyncInitialState), {
     ...asyncCases(LOGIN),
     [LOGOUT.SUCCESS.toString()]: (state, action) => asyncInitialState
   }),
   logout: createReducer(asyncInitialState, {
     ...asyncCases(LOGOUT)
+  }),
+  register: createReducer(asyncInitialState, {
+    ...asyncCases(REGISTER)
   })
 };

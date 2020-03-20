@@ -1,6 +1,7 @@
 import React from "react";
 import { Menu } from "./components";
 import { userIsAuthenticated } from "./HOCs";
+import PostMessage from './components/PostMessage'
 
 const GET_USER_URL = "https://kwitter-api.herokuapp.com/users/test-awesome"
 const GET_USER_PHOTO = "https://kwitter-api.herokuapp.com/users/test-awesome/picture$"
@@ -52,6 +53,7 @@ class Profile extends React.Component {
 
           </div>
          ))} 
+         <PostMessage />
     </>
     
     );
