@@ -8,6 +8,7 @@ import {
   createActions,
   createReducer
 } from "./helpers";
+import { LOGOUT } from "./helpers/LOGOUT.action";
 
 const url = domain + "/auth";
 
@@ -25,7 +26,8 @@ export const login = loginData => dispatch => {
     .catch(err => Promise.reject(dispatch(LOGIN.FAIL(err))));
 };
 
-const LOGOUT = createActions("logout");
+// LOGOUT is defined in another module so that we don't
+// have to move handleJsonResponse to another module instead
 export const logout = () => (dispatch, getState) => {
   dispatch(LOGOUT.START());
 

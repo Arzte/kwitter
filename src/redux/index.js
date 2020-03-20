@@ -8,7 +8,7 @@ import { deleteMessageReducer } from "./deleteMessage";
 import { likeMessageReducer } from "./likes";
 import { authReducers } from "./auth";
 
-export * from "./auth";
+export { register, login, logout } from "./auth";
 
 export const history = createBrowserHistory({
   basename: process.env.PUBLIC_URL
