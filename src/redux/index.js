@@ -7,6 +7,7 @@ import { postMessageReducer } from "./postMessage";
 import { deleteMessageReducer } from "./deleteMessage";
 import { likeMessageReducer } from "./likes";
 import { authReducers } from "./auth";
+import { userReducers } from "./users.js";
 
 export * from "./auth";
 export * from "./users";

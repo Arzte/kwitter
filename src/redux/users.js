@@ -58,8 +58,8 @@ export const userpic = (userName) => (dispatch, getState) => {
     .then(result => dispatch(USERPIC.SUCCESS(result)))
     .catch(err => Promise.reject(dispatch(USERPIC.FAIL(err))));
 };
- 
-  export const reducers = {
+ //auth.js
+  export const userReducers = {
     user: createReducer(asyncInitialState, {
       ...asyncCases(CREATEUSER, UPDATEUSER, USERPIC)
     })
