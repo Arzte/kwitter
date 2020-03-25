@@ -9,7 +9,7 @@ import { likeMessageReducer } from "./likes";
 import { authReducers } from "./auth";
 import { userReducers } from "./users.js";
 
-export * from "./auth";
+export { register, login, logout } from "./auth";
 export * from "./users";
 
 export const history = createBrowserHistory({

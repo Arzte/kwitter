@@ -46,7 +46,7 @@ class RegisterForm extends React.Component {
             onChange={this.handleChange}
           />
           <button type="submit" disabled={loading}>
-            Login
+            Register User
           </button>
         </form>
         {loading && <Spinner name="circle" color="blue" />}
