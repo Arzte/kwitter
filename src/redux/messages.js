@@ -3,17 +3,26 @@ import {
   handleJsonResponse,
   createActions,
   createReducer,
+  asyncCases,
   getInitStateFromStorage,
-  asyncCases
 } from "./helpers";
 
 const url = domain + "/messages";
 
 const GETMESSAGES = createActions("getMessages");
-export const getMessages = () => dispatch => {
+export const getMessages = (username = "") => dispatch => {
   dispatch(GETMESSAGES.START());
 
-  return fetch(url + "/?limit=100&offset=0")
+  let apiString = ""
+
+if (username !== "") {
+  apiString = "https://kwitter-api.herokuapp.com/messages?limit=100&offset=0" + username;
+  
+} else {
+  apiString = "https://kwitter-api.herokuapp.com/messages?limit=100&offset=0"
+}
+  
+return fetch(url + apiString) 
     .then(handleJsonResponse)
     .then(result => {
       console.log(result);

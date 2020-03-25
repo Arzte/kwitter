@@ -2,14 +2,16 @@ import {
     domain,
     jsonHeaders,
     handleJsonResponse,
-    asyncInitialState,
-    asyncCases,
     createActions,
     createReducer,
+    asyncCases,
+    asyncInitialState,
   } from "./helpers";
+import { UPDATEUSER } from "./UPDATEUSER";
+import { USERPIC } from "./USERPIC";
   
   
-  const url = domain + "/users";
+  export const url = domain + "/users";
   
   const CREATEUSER = createActions("createuser");
   export const createuser = userData => dispatch => {
@@ -24,43 +26,22 @@ import {
       .then(result => dispatch(CREATEUSER.SUCCESS(result)))
       .catch(err => Promise.reject(dispatch(CREATEUSER.FAIL(err))));
     };
-   
-  const UPDATEUSER = createActions ("updateuser");
-  export const updateuser = (userData, userName) => (dispatch, getState) => {
-    dispatch(UPDATEUSER.START());
-    let token = getState().auth.login.result.token
-    return fetch(url + "/" + userName, {
-      method: "PATCH",
-      headers: {Authorization: "Bearer " + token,...jsonHeaders}, 
-      body: JSON.stringify({ 
-        password: userData.password,
-        about: userData.about, 
-        displayName: userData.displayName 
-      })
-    })
-    .then(handleJsonResponse)
-      .then(result => dispatch(UPDATEUSER.SUCCESS(result)))
-      .catch(err => Promise.reject(dispatch(UPDATEUSER.FAIL(err))));
-  };
-  //set current user's picture
-  
-  const USERPIC = createActions("userpic");
-export const userpic = (userName) => (dispatch, getState) => {
-  dispatch(USERPIC.START());
 
-  let token = getState().auth.login.result.token;
-
-  return fetch(url + "/" + userName, {
-    method: "PUT",
-    headers: { Authorization: "Bearer " + token, ...jsonHeaders }
-  })
-    .then(handleJsonResponse)
-    .then(result => dispatch(USERPIC.SUCCESS(result)))
-    .catch(err => Promise.reject(dispatch(USERPIC.FAIL(err))));
-};
+    const initialState = {
+      result: null,
+      loading: false,
+      error: null
+    };
  //auth.js
   export const userReducers = {
-    user: createReducer(asyncInitialState, {
-      ...asyncCases(CREATEUSER, UPDATEUSER, USERPIC)
-    })
+    CREATEUSER: createReducer(asyncInitialState("createuser", initialState), {
+      ...asyncCases(CREATEUSER)
+    }),
+    UPDATEUSER: createReducer(asyncInitialState, {
+      ...asyncCases(UPDATEUSER),
+    }),
+    USERPIC: createReducer(asyncInitialState, {
+      ...asyncCases(USERPIC)
+    }),
+    
   };

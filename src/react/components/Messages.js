@@ -50,7 +50,8 @@ const mapStateToProps = state => {
   return {
     messages: state.messages.getMessages.result,
     user: state.auth.login.result.username,
-    likeId: state.likeMessage.likeMessage.result
+    likeId: state.likeMessage.likeMessage.result,
+    delete: state.auth.result
   };
 };
 
