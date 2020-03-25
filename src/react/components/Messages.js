@@ -5,7 +5,11 @@ import Menu from "./Menu";
 import { deleteMessage } from "../../redux/deleteMessage";
 import { likeMessage } from "../../redux/likes";
 import { userIsAuthenticated } from "../HOCs";
-
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import "./Messages.css"
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 class Messages extends Component {
 
@@ -25,24 +29,36 @@ class Messages extends Component {
       return <div></div>;
     } else {
       return (
-        <div>
+        <div >
           <Menu isAuthenticated={this.props.isAuthenticated} />
+          <div className="wrapper">
           {this.props.messages.map(message => (
-            <div className={message.id} key={message.id}>
-              {message.text}
-              {message.id}
+            <Card variant="outlined" className="card" key={message.id}>
+              <CardContent>
+              <div className="message color user">{message.username}</div>
+              <div className="message color ">{message.text}</div>
+             
               {message.likes["id"]}
-              likes:{message.likes.length}
+             
               {message.username === this.props.user && (
+                <div className="trash">
                 <button onClick={e => this.handleDelete(e, message.id)}>
-                  Delete
+                  <DeleteIcon fontSize="small" />
                 </button>
+                </div>
               )}
+              <div className="likes">
               <button onClick={e => this.props.likeMessage(e, message.id)}>
-                Like
+                <ThumbUpIcon fontSize="small" />
               </button>
-            </div>
+              <div className="message color num">{message.likes.length}</div>
+              </div>
+              <div className="message color created">Posted at: {message.createdAt}</div>
+
+              </CardContent>
+            </Card>
           ))}
+          </div>
         </div>
       );
     }
