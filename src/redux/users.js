@@ -34,7 +34,7 @@ import { USERPIC } from "./USERPIC";
     };
  //auth.js
   export const userReducers = {
-    CREATEUSER: createReducer(asyncInitialState("createuser", initialState), {
+    CREATEUSER: createReducer(asyncInitialState,("createuser", initialState), {
       ...asyncCases(CREATEUSER)
     }),
     UPDATEUSER: createReducer(asyncInitialState, {

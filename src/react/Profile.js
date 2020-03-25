@@ -2,10 +2,10 @@ import React from "react";
 import { Menu } from "./components";
 import { userIsAuthenticated } from "./HOCs";
 import PostMessage from "./components/PostMessage";
-import {  UPDATEUSER } from "../../redux/UPDATEUSER.js";
-import { USERPIC } from "../../USERPIC.js";
-import { DELETEUSER } from "../../DELETEUSER.js";
-import { CREATEUSER } from "../../users.js";
+import {  updateuser } from "../redux/UPDATEUSER.js";
+import { userpic } from "../redux/USERPIC.js";
+import { deleteuser } from "../redux/DELETEUSER.js";
+import { createuser } from "../redux/users.js";
 import { connect } from "react-redux";
 
  const GET_USER_URL = "https://kwitter-api.herokuapp.com/users/usernameusername";
@@ -15,13 +15,13 @@ const GET_USER_PHOTO =
 class Profile extends React.Component {
   
   componentDidMount() {
-    this.props.UPDATEUSER();
+    this.props.updateuser();
     
-    this.props.USERPIC();
+    this.props.userpic();
     
-    this.props.DELETEUSER();
+    this.props.deleteuser();
 
-    this.props.CREATEUSER();
+    this.props.createuser();
     
     
     
@@ -59,15 +59,15 @@ class Profile extends React.Component {
 }
         const mapStateToProps = state => {
           return {
-          updateuser: state.auth.updateuser,
-          setcurrentphoto: state.auth.userpic,
-          delete: state.auth.deleteuser 
+          updateuser: state.auth.updateuser.result,
+          setcurrentphoto: state.auth.userpic.result,
+          delete: state.auth.deleteuser.result 
           }
         };
 
 export default userIsAuthenticated(connect(mapStateToProps, {
-  DELETEUSER,
-  UPDATEUSER,
-  USERPIC,
-  CREATEUSER
+  deleteuser,
+  updateuser,
+  userpic,
+  createuser
 })(Profile));
