@@ -10,6 +10,7 @@ import CardContent from "@material-ui/core/CardContent";
 import "./Messages.css"
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import DeleteIcon from '@material-ui/icons/Delete';
+import PostMessage from './PostMessage'
 
 class Messages extends Component {
 
@@ -32,6 +33,11 @@ class Messages extends Component {
         <div >
           <Menu isAuthenticated={this.props.isAuthenticated} />
           <div className="wrapper">
+          <Card variant="outlined" className="card">
+          <CardContent>
+          <PostMessage />
+          </CardContent>
+          </Card>
           {this.props.messages.map(message => (
             <Card variant="outlined" className="card" key={message.id}>
               <CardContent>

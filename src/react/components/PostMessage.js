@@ -1,6 +1,10 @@
 import { connect } from "react-redux";
 import { postMessage } from "../../redux/postMessage";
 import React, { Component } from "react";
+import "./PostMessage.css";
+import TextField from "@material-ui/core/TextField";
+
+import SendIcon from '@material-ui/icons/Send';
 
 class PostMessage extends Component {
   state = { text: "" };
@@ -27,15 +31,24 @@ class PostMessage extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="newPost">Post a new Message</label>
-          <input
+          <TextField
+            
+            style={{ margin: 8 }}
+            placeholder="Whats On Your Mind?"
+            fullWidth
+            margin="normal"
+            InputLabelProps={{
+              shrink: true
+            }}
+            variant="filled"
             type="text"
             id="newPost"
             name="newPost"
             value={this.state.text}
             onChange={this.handleChange}
           />
-          <button>Submit Post</button>
+
+          <button className="button"><SendIcon color="blue" /></button>
         </form>
       </div>
     );
