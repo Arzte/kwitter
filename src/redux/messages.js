@@ -16,7 +16,7 @@ export const getMessages = (username = "") => dispatch => {
   let apiString = ""
 
 if (username !== "") {
-  apiString = "https://kwitter-api.herokuapp.com/messages?limit=100&offset=0" + username;
+  apiString = "https://kwitter-api.herokuapp.com/messages?limit=100&offset=0&username=" + username;
   
 } else {
   apiString = "https://kwitter-api.herokuapp.com/messages?limit=100&offset=0"
