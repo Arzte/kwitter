@@ -17,18 +17,13 @@ class LoginForm extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  responseGoogle=(response)=>{
-    console.log(response)
-    const googleRegisterData={
+  responseGoogle = response => {
+    const googleRegisterData = {
       username: response.profileObj.name.slice(12),
-      //displayName: response.profileObj.givenName,
-      password: response.profileObj.googleId.slice(12),
-      
-    }
-    console.log(googleRegisterData)
-    this.props.login(googleRegisterData)
-  }
-
+      password: response.profileObj.googleId.slice(12)
+    };
+    this.props.login(googleRegisterData);
+  };
 
   render() {
     const { loading, error } = this.props;

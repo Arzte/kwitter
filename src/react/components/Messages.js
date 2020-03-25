@@ -8,6 +8,9 @@ import { userIsAuthenticated } from "../HOCs";
 
 
 class Messages extends Component {
+
+
+  
   componentDidMount() {
     this.props.getMessages();
   }

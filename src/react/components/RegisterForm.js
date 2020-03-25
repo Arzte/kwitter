@@ -18,13 +18,11 @@ class RegisterForm extends React.Component {
   };
 
   responseGoogle = response => {
-    console.log(response);
     const googleRegisterData = {
       username: response.profileObj.name.slice(12),
       displayName: response.profileObj.givenName,
       password: response.profileObj.googleId.slice(12)
     };
-    console.log(googleRegisterData);
     this.props.register(googleRegisterData);
   };
 
