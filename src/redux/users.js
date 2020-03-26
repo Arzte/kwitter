@@ -16,12 +16,8 @@ export const getUsers = () => dispatch => {
   return fetch(url + "/?limit=25&offset=0")
     .then(handleJsonResponse)
     .then(result => {
-      console.log(result);
       result = Object.keys(result.users).map(key => result.users[key]);
-      dispatch({
-        type: GETUSERS.SUCCESS,
-        payload: result
-      });
+      dispatch(GETUSERS.SUCCESS(result));
     })
     .catch(err => Promise.reject(dispatch(GETUSERS.FAIL(err))));
 };

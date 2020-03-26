@@ -16,7 +16,6 @@ export const getMessages = (limit = 100) => dispatch => {
   return fetch(url + `/?limit=${limit}&offset=0`)
     .then(handleJsonResponse)
     .then(result => {
-      console.log(result);
       result = Object.keys(result.messages).map(key => result.messages[key]);
       dispatch({
         type: GETMESSAGES.SUCCESS,

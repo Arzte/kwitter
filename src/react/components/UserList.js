@@ -23,9 +23,9 @@ class UserList extends Component {
         <div className="wrapper">
           <Card variant="outlined" className="card">
             <CardContent>
-              <p className="friends">
+              <div className="friends">
                 <h1>Friend List</h1>
-              </p>
+              </div>
             </CardContent>
           </Card>
           {this.props.users.map(user => (

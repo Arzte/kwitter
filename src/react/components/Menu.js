@@ -19,18 +19,21 @@ class Menu extends React.Component {
 
         {this.props.isAuthenticated && (
           <div id="menu-links">
-            <Link to="/profiles/:username" className="menu-font">
-              <Button variant="contained" color="white" component="span">
+            <Link
+              to={"/profiles/" + this.props.user.username}
+              className="menu-font"
+            >
+              <Button variant="contained" component="span">
                 Home
               </Button>
             </Link>
             <Link to="/messagefeed/" className="menu-font">
-              <Button variant="contained" color="white" component="span">
+              <Button variant="contained" component="span">
                 Message Feed
               </Button>
             </Link>
             <Link to="/" onClick={this.handleLogout} className="menu-font">
-              <Button variant="contained" color="white" component="span">
+              <Button variant="contained" component="span">
                 Logout
               </Button>
             </Link>
@@ -43,9 +46,7 @@ class Menu extends React.Component {
 
 export default connect(
   state => ({
-    result: state.auth.logout.result,
-    loading: state.auth.logout.loading,
-    error: state.auth.logout.error
+    user: state.auth.login.result
   }),
   { logout }
 )(Menu);

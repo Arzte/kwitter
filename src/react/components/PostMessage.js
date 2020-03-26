@@ -48,7 +48,7 @@ class PostMessage extends Component {
           />
 
           <button className="button">
-            <SendIcon color="blue" />
+            <SendIcon />
           </button>
         </form>
       </div>

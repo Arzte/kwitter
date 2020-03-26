@@ -9,7 +9,6 @@ import { likeMessageReducer } from "./likes";
 import { authReducers } from "./auth";
 import { usersReducer } from "./users";
 import { getaUserReducer } from "./getUser";
-import { getaUserPicReducer } from "./getUserPic";
 
 export { register, login, logout } from "./auth";
 
@@ -26,8 +25,7 @@ export const store = configureStore({
     deleteMessage: combineReducers(deleteMessageReducer),
     likeMessage: combineReducers(likeMessageReducer),
     users: combineReducers(usersReducer),
-    getaUser: combineReducers(getaUserReducer),
-    getaUserPic: combineReducers(getaUserPicReducer)
+    getaUser: combineReducers(getaUserReducer)
   },
   preloadedState: {},
   devTools: process.env.NODE_ENV !== "production"
