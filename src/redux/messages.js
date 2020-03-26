@@ -17,10 +17,7 @@ export const getMessages = (limit = 100) => dispatch => {
     .then(handleJsonResponse)
     .then(result => {
       result = Object.keys(result.messages).map(key => result.messages[key]);
-      dispatch({
-        type: GETMESSAGES.SUCCESS,
-        payload: result
-      });
+      dispatch(GETMESSAGES.SUCCESS(result));
     })
     .catch(err => Promise.reject(dispatch(GETMESSAGES.FAIL(err))));
 };
