@@ -1,4 +1,6 @@
 import { createAction } from "@reduxjs/toolkit";
+import { store } from "../index";
+import { LOGOUT } from "./LOGOUT.action";
 
 export { createReducer } from "@reduxjs/toolkit";
 
@@ -13,6 +15,9 @@ export const jsonHeaders = {
 export const handleJsonResponse = res => {
   if (res.ok) {
     return res.json();
+  } else if (res.status === 401) {
+    console.log("Token is expired, logging out...");
+    store.dispatch(LOGOUT.SUCCESS(null));
   }
   return res.json().then(result => {
     throw result;

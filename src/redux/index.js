@@ -10,7 +10,8 @@ import { authReducers } from "./auth";
 import { usersReducer } from "./users"
 import { getaUserReducer } from "./getUser"
 import { getaUserPicReducer } from './getUserPic'
-export * from "./auth";
+
+export { register, login, logout } from "./auth";
 
 export const history = createBrowserHistory({
   basename: process.env.PUBLIC_URL

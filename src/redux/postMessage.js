@@ -1,22 +1,21 @@
 import {
-    domain,
-    handleJsonResponse,
-    createActions,
-    createReducer,
-    asyncCases,
-    asyncInitialState,
-    jsonHeaders
-  } from "./helpers";
-  import { getMessages} from './messages'
-  
-  const url = domain + "/messages";
+  domain,
+  handleJsonResponse,
+  createActions,
+  createReducer,
+  asyncCases,
+  asyncInitialState,
+  jsonHeaders
+} from "./helpers";
+import { getMessages } from "./messages";
+
+const url = domain + "/messages";
 
 const POSTMESSAGE = createActions("postMessage");
 export const postMessage = messageData => (dispatch, getState) => {
   dispatch(POSTMESSAGE.START());
 
   const token = getState().auth.login.result.token;
-
 
   return fetch(url, {
     method: "POST",
@@ -32,9 +31,7 @@ export const postMessage = messageData => (dispatch, getState) => {
 };
 
 export const postMessageReducer = {
-    
-    postMessage: createReducer(asyncInitialState, {
-      ...asyncCases(POSTMESSAGE)
-    })
-  };
-  
+  postMessage: createReducer(asyncInitialState, {
+    ...asyncCases(POSTMESSAGE)
+  })
+};
