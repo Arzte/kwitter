@@ -81,7 +81,9 @@ const mapStateToProps = state => {
   return {
     messages: state.messages.getMessages.result,
     user: state.auth.login.result.username,
-    likeId: state.likeMessage.likeMessage.result
+    likeId: state.likeMessage.likeMessage.result,
+    getUserPic: state.getaUserPic.getaUserPic.result,
+    getUser: state.getaUser.getaUser.result
   };
 };
 

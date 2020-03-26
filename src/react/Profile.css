@@ -1,0 +1,17 @@
+.wrapper2 {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0px;
+    background-color: lightgray;
+  
+}
+.profileSide {
+  width: 40%;
+  float: left
+}
+.userSide {
+  width: 40%;
+  float: right;
+}

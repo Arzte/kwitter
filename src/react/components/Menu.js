@@ -19,6 +19,9 @@ class Menu extends React.Component {
 
         {this.props.isAuthenticated && (
           <div id="menu-links">
+            <Link to="/profiles/:username" className="menu-font">
+              <Button variant="contained" color="white" component="span">Home</Button>
+            </Link>
             <Link to="/messagefeed/" className="menu-font">
               <Button variant="contained" color="white" component="span">Message Feed</Button>
             </Link>

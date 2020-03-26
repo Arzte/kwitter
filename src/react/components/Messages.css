@@ -69,3 +69,12 @@
     bottom: 10px;
     font-size: small;
 }
+.friends {
+    color: #003367;
+    font-size: xx-large;
+}
+.profileIcon {
+    transform: scale(2.8);
+    margin-top: 10px;
+    margin-bottom: 25px;
+}

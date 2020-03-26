@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir"), url(../../fonts/AvenirLTStd-Book.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Avenir-Medium";
+  font-weight: 900;
+  src: local("Avenir-Medium"),
+    url(../../fonts/AvenirLTStd-Medium.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Avenir-Roman";
+  font-weight: 900;
+  src: local("Avenir-Roman"),
+    url(../../fonts/AvenirLTStd-Roman.otf) format("opentype");
+}
+
+.wrapper {
+  background-color: #3f51b5;
+  height: fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding-top: 20px;
+}
+.friends {
+    color: #003367;
+    font-size: xx-large;
+}
+.profileIcon {
+    transform: scale(5.8);
+}
