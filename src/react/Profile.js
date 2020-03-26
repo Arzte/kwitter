@@ -1,7 +1,6 @@
 import React from "react";
 import { Menu } from "./components";
 import { userIsAuthenticated } from "./HOCs";
-import PostMessage from "./components/PostMessage";
 import UserList from "./components/UserList";
 import MyProfile from "./components/MyProfile";
 import "./Profile.css";

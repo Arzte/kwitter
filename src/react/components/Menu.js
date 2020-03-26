@@ -15,7 +15,7 @@ class Menu extends React.Component {
   render() {
     return (
       <AppBar position="static" className="menu">
-        <img className="menu-logo" src={Logo} />
+        <img className="menu-logo" src={Logo} alt="Kwitter Logo" />
 
         {this.props.isAuthenticated && (
           <div id="menu-links">

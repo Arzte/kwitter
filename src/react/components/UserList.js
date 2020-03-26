@@ -4,9 +4,7 @@ import React, { Component } from "react";
 import { userIsAuthenticated } from "../HOCs";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import Menu from "./Menu";
 import "./Messages.css";
-import { domain } from "../../redux/helpers";
 import AccountCircleSharpIcon from "@material-ui/icons/AccountCircleSharp";
 
 class UserList extends Component {
@@ -34,7 +32,10 @@ class UserList extends Component {
               <CardContent>
                 {user.pictureLocation !== null && (
                   <div>
-                    <img src={domain + user.pictureLocation}></img>
+                    <img
+                      src={domain + user.pictureLocation}
+                      alt={user.displayName + "'s profile picture"}
+                    />
                   </div>
                 )}{" "}
                 {user.pictureLocation === null && (

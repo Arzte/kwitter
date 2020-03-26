@@ -4,8 +4,7 @@ import {
   createActions,
   createReducer,
   asyncCases,
-  asyncInitialState,
-  jsonHeaders
+  asyncInitialState
 } from "./helpers";
 
 const url = domain + "/users";
@@ -16,7 +15,6 @@ export const getaUser = id => dispatch => {
 
   return fetch(url + "/" + id, {
     method: "GET"
-    //headers: { Authorization: "Bearer " + token, ...jsonHeaders }
   })
     .then(handleJsonResponse)
     .then(result => {

@@ -26,7 +26,12 @@ class MyProfile extends Component {
           <Card className="card">
             <CardContent>
               <div className="pic">
-                <img src={domain}></img>
+                <img
+                  src={domain}
+                  alt={
+                    this.props.getUser.user.displayName + "'s profile picture"
+                  }
+                ></img>
               </div>
 
               <div className="displayName">
