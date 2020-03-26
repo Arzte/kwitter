@@ -5,6 +5,7 @@ import { userIsAuthenticated } from "../HOCs";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import "./Messages.css";
+import "./UserList.css";
 import AccountCircleSharpIcon from "@material-ui/icons/AccountCircleSharp";
 
 class UserList extends Component {
@@ -33,6 +34,7 @@ class UserList extends Component {
                 {user.pictureLocation !== null && (
                   <div>
                     <img
+                      className="profilePic"
                       src={domain + user.pictureLocation}
                       alt={user.displayName + "'s profile picture"}
                     />

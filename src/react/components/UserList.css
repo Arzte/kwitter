@@ -29,6 +29,7 @@
   color: #003367;
   font-size: xx-large;
 }
-.profileIcon {
-  transform: scale(5.8);
+
+.profilePic {
+  width: 100%;
 }

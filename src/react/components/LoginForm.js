@@ -49,7 +49,7 @@ class LoginForm extends React.Component {
                 required
                 onChange={this.handleChange}
               />
-              <button type="submit" disabled={loading}>
+              <button type="submit" disabled={loading} >
                 Login
               </button>
 
@@ -58,7 +58,7 @@ class LoginForm extends React.Component {
 
               <GoogleLogin
                 clientId="146480882190-njtth0tt692me1b794rt57k3aohpleph.apps.googleusercontent.com"
-                buttonText="Login"
+                buttonText="Login with Google"
                 onSuccess={response => this.responseGoogle(response)}
                 onFailure={response => this.responseGoogle(response)}
                 cookiePolicy={"single_host_origin"}
