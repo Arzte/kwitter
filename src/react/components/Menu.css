@@ -27,7 +27,6 @@
   align-items: center;
   padding: 0 1em;
   border-radius: 1em;
-  
 }
 
 #menu-links {
@@ -35,7 +34,6 @@
   display: flex;
   padding-left: 100em;
   bottom: 10px;
-  
 }
 
 #menu-links a {
@@ -44,7 +42,6 @@
   color: white;
   text-decoration: underline;
   cursor: pointer;
- 
 }
 #id {
   color: white;

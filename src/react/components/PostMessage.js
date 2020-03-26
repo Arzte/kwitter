@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import "./PostMessage.css";
 import TextField from "@material-ui/core/TextField";
 
-import SendIcon from '@material-ui/icons/Send';
+import SendIcon from "@material-ui/icons/Send";
 
 class PostMessage extends Component {
   state = { text: "" };
@@ -32,7 +32,6 @@ class PostMessage extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <TextField
-            
             style={{ margin: 8 }}
             placeholder="Whats On Your Mind?"
             fullWidth
@@ -48,7 +47,9 @@ class PostMessage extends Component {
             onChange={this.handleChange}
           />
 
-          <button className="button"><SendIcon color="blue" /></button>
+          <button className="button">
+            <SendIcon color="blue" />
+          </button>
         </form>
       </div>
     );

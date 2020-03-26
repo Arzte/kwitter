@@ -1,80 +1,78 @@
 @font-face {
-    font-family: "Avenir";
-    src: local("Avenir"), url(../../fonts/AvenirLTStd-Book.otf) format("opentype");
-  }
-  
-  @font-face {
-    font-family: "Avenir-Medium";
-    font-weight: 900;
-    src: local("Avenir-Medium"),
-      url(../../fonts/AvenirLTStd-Medium.otf) format("opentype");
-  }
-  
-  @font-face {
-    font-family: "Avenir-Roman";
-    font-weight: 900;
-    src: local("Avenir-Roman"),
-      url(../../fonts/AvenirLTStd-Roman.otf) format("opentype");
-  }
+  font-family: "Avenir";
+  src: local("Avenir"), url(../../fonts/AvenirLTStd-Book.otf) format("opentype");
+}
 
-  .message{
-    font-family: avenir;
-    font-size: xx-large;
-  }
+@font-face {
+  font-family: "Avenir-Medium";
+  font-weight: 900;
+  src: local("Avenir-Medium"),
+    url(../../fonts/AvenirLTStd-Medium.otf) format("opentype");
+}
 
-  .color{
-    color: #003367;
-  }
-  .user{
-    font-weight: bolder;
-    font-size: x-large;
-  }
-  .thumbsUp {
-      font-size: small;
-  }
-  .card {
-      min-width: 600px;
-      position: relative;
-      margin: 25px;
-  }
-  .wrapper{
-      background-color: #3f51b5;
-      height: fit-content;
-      width: fit-content;
-      margin: 0 auto;
-      margin-top: 50px;
-      padding-top: 20px;
-      
-  }
+@font-face {
+  font-family: "Avenir-Roman";
+  font-weight: 900;
+  src: local("Avenir-Roman"),
+    url(../../fonts/AvenirLTStd-Roman.otf) format("opentype");
+}
+
+.message {
+  font-family: avenir;
+  font-size: xx-large;
+}
+
+.color {
+  color: #003367;
+}
+.user {
+  font-weight: bolder;
+  font-size: x-large;
+}
+.thumbsUp {
+  font-size: small;
+}
+.card {
+  min-width: 600px;
+  position: relative;
+  margin: 25px;
+}
+.wrapper {
+  background-color: #3f51b5;
+  height: fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding-top: 20px;
+}
 
 .likes {
-  display: inline-flex
+  display: inline-flex;
 }
 .num {
-    font-size: large;
-    margin-top: 5px;
-    margin-left: 5px;
+  font-size: large;
+  margin-top: 5px;
+  margin-left: 5px;
 }
 .trash {
-    position: absolute;
-    display: inline-block;
-    left: 540px;
-    top: 10px
-
+  position: absolute;
+  display: inline-block;
+  left: 540px;
+  top: 10px;
 }
 .created {
-    position: absolute;
-    display: inline-block;
-    left: 420px;
-    bottom: 10px;
-    font-size: small;
+  position: absolute;
+  display: inline-block;
+  left: 420px;
+  bottom: 10px;
+  font-size: small;
 }
 .friends {
-    color: #003367;
-    font-size: xx-large;
+  color: #003367;
+  font-size: xx-large;
 }
 .profileIcon {
-    transform: scale(2.8);
-    margin-top: 10px;
-    margin-bottom: 25px;
+  transform: scale(2.8);
+  margin-top: 10px;
+  margin-bottom: 25px;
 }

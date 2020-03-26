@@ -31,41 +31,41 @@ class LoginForm extends React.Component {
     const { loading, error } = this.props;
     return (
       <div className="wrapper">
-      <Card variant="outlined" className="card">
-        <CardContent>
-          <form id="login-form" onSubmit={this.handleLogin}>
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              name="username"
-              autoFocus
-              required
-              onChange={this.handleChange}
-            />
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              required
-              onChange={this.handleChange}
-            />
-            <button type="submit" disabled={loading}>
-              Login
-            </button>
+        <Card variant="outlined" className="card">
+          <CardContent>
+            <form id="login-form" onSubmit={this.handleLogin}>
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                autoFocus
+                required
+                onChange={this.handleChange}
+              />
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                required
+                onChange={this.handleChange}
+              />
+              <button type="submit" disabled={loading}>
+                Login
+              </button>
 
-            {loading && <Spinner name="circle" color="blue" />}
-            {error && <p style={{ color: "red" }}>{error.message}</p>}
+              {loading && <Spinner name="circle" color="blue" />}
+              {error && <p style={{ color: "red" }}>{error.message}</p>}
 
-            <GoogleLogin
-              clientId="146480882190-njtth0tt692me1b794rt57k3aohpleph.apps.googleusercontent.com"
-              buttonText="Login"
-              onSuccess={response => this.responseGoogle(response)}
-              onFailure={response => this.responseGoogle(response)}
-              cookiePolicy={"single_host_origin"}
-            />
-          </form>
-        </CardContent>
-      </Card>
+              <GoogleLogin
+                clientId="146480882190-njtth0tt692me1b794rt57k3aohpleph.apps.googleusercontent.com"
+                buttonText="Login"
+                onSuccess={response => this.responseGoogle(response)}
+                onFailure={response => this.responseGoogle(response)}
+                cookiePolicy={"single_host_origin"}
+              />
+            </form>
+          </CardContent>
+        </Card>
       </div>
     );
   }

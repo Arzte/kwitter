@@ -32,15 +32,15 @@
   padding-bottom: 20px;
 }
 .card {
-    min-width: 600px;
-    position: relative;
-    margin: 25px;
+  min-width: 600px;
+  position: relative;
+  margin: 25px;
 }
 .displayName {
-    font-weight: bolder;
-    font-size: xx-large;
+  font-weight: bolder;
+  font-size: xx-large;
 }
 .userName {
-    font-weight: bold;
-    font-size: larger;
+  font-weight: bold;
+  font-size: larger;
 }

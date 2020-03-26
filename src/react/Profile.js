@@ -4,7 +4,7 @@ import { userIsAuthenticated } from "./HOCs";
 import PostMessage from "./components/PostMessage";
 import UserList from "./components/UserList";
 import MyProfile from "./components/MyProfile";
-import './Profile.css'
+import "./Profile.css";
 
 class Profile extends React.Component {
   render() {
@@ -17,7 +17,7 @@ class Profile extends React.Component {
             <MyProfile className="profile" />
           </div>
           <div className="userSide">
-          <UserList className="userlist" />
+            <UserList className="userlist" />
           </div>
         </div>
       </>

@@ -7,9 +7,9 @@ import { postMessageReducer } from "./postMessage";
 import { deleteMessageReducer } from "./deleteMessage";
 import { likeMessageReducer } from "./likes";
 import { authReducers } from "./auth";
-import { usersReducer } from "./users"
-import { getaUserReducer } from "./getUser"
-import { getaUserPicReducer } from './getUserPic'
+import { usersReducer } from "./users";
+import { getaUserReducer } from "./getUser";
+import { getaUserPicReducer } from "./getUserPic";
 
 export { register, login, logout } from "./auth";
 

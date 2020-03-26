@@ -4,7 +4,7 @@ import Home from "./Home";
 import Register from "./Register";
 import Profile from "./Profile";
 import NotFound from "./NotFound";
-import Messages from "./components/Messages"
+import Messages from "./components/Messages";
 
 class App extends React.Component {
   render() {

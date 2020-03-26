@@ -11,11 +11,11 @@ import {
 const url = domain + "/users";
 
 const GETAUSER = createActions("getaUser");
-export const getaUser = (id) => dispatch => {
+export const getaUser = id => dispatch => {
   dispatch(GETAUSER.START());
 
   return fetch(url + "/" + id, {
-    method: "GET",
+    method: "GET"
     //headers: { Authorization: "Bearer " + token, ...jsonHeaders }
   })
     .then(handleJsonResponse)

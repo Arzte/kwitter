@@ -17,14 +17,16 @@ class MyProfile extends Component {
     if (this.props.getUser === null) {
       return <div></div>;
     } else {
-        let domain = "https://kwitter-api.herokuapp.com" + this.props.getUser.user.pictureLocation
+      let domain =
+        "https://kwitter-api.herokuapp.com" +
+        this.props.getUser.user.pictureLocation;
 
       return (
         <div className="wrapper1">
           <Card className="card">
             <CardContent>
               <div className="pic">
-                <img src={domain} ></img>
+                <img src={domain}></img>
               </div>
 
               <div className="displayName">
