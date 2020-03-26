@@ -1,17 +1,19 @@
+import Menu from "./Menu";
 import { connect } from "react-redux";
 import { getMessages } from "../../redux/messages";
 import React, { Component } from "react";
-import Menu from "./Menu";
 import { deleteMessage } from "../../redux/deleteMessage";
 import { likeMessage } from "../../redux/likes";
 import { userIsAuthenticated } from "../HOCs";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import "./Messages.css";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import DeleteIcon from "@material-ui/icons/Delete";
 import PostMessage from "./PostMessage";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { Link } from "@material-ui/core";
+import { getUser } from "../../redux/users";
+import "./Messages.css";
 
 class Messages extends Component {
   componentDidMount() {
@@ -58,7 +60,11 @@ class Messages extends Component {
               {this.props.messages.map(message => (
                 <Card variant="outlined" className="card" key={message.id}>
                   <CardContent>
-                    <div className="message color user">{message.username}</div>
+                    <div className="message color user">
+                      <Link href={"/profiles/" + message.username}>
+                        {message.username}
+                      </Link>
+                    </div>
                     <div className="message color ">{message.text}</div>
 
                     {message.likes["id"]}
@@ -99,7 +105,7 @@ const mapStateToProps = state => {
     messages: state.messages.getMessages.result,
     user: state.auth.login.result.username,
     likeId: state.likeMessage.likeMessage.result,
-    getUser: state.getaUser.getaUser.result
+    getUser: state.users.getUser.result
   };
 };
 
@@ -107,6 +113,7 @@ export default userIsAuthenticated(
   connect(mapStateToProps, {
     getMessages,
     deleteMessage,
-    likeMessage
+    likeMessage,
+    getUser
   })(Messages)
 );

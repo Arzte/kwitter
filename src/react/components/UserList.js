@@ -7,6 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import "./Messages.css";
 import "./UserList.css";
 import AccountCircleSharpIcon from "@material-ui/icons/AccountCircleSharp";
+import { Link } from "@material-ui/core";
 
 class UserList extends Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class UserList extends Component {
     if (this.props.users === null) {
       return <div></div>;
     } else {
-      let domain = "https://kwitter-api.herokuapp.com";
+      let apiUrl = "https://kwitter-api.herokuapp.com";
       return (
         <div className="wrapper">
           <Card variant="outlined" className="card">
@@ -35,7 +36,7 @@ class UserList extends Component {
                   <div>
                     <img
                       className="profilePic"
-                      src={domain + user.pictureLocation}
+                      src={apiUrl + user.pictureLocation}
                       alt={user.displayName + "'s profile picture"}
                     />
                   </div>
@@ -48,7 +49,11 @@ class UserList extends Component {
                     />
                   </div>
                 )}
-                <div className="displayName">{user.displayName}</div>
+                <div className="displayName">
+                  <Link href={"/profiles/" + user.username}>
+                    {user.displayName}
+                  </Link>
+                </div>
                 <div className="userName">{user.username}</div>
                 <div className="aboutUser">{user.about}</div>
               </CardContent>
@@ -62,8 +67,8 @@ class UserList extends Component {
 
 const mapStateToProps = state => {
   return {
-    users: state.users.getUsers.result,
-    getUser: state.getaUser.getaUser.result
+    user: state.users.getUser.result,
+    users: state.users.getUsers.result
   };
 };
 
