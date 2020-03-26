@@ -42,7 +42,10 @@ class UserList extends Component {
                 )}{" "}
                 {user.pictureLocation === null && (
                   <div>
-                    <AccountCircleSharpIcon className="profileIcon" />
+                    <AccountCircleSharpIcon
+                      className="profileIcon"
+                      fontSize="large"
+                    />
                   </div>
                 )}
                 <div className="displayName">{user.displayName}</div>
