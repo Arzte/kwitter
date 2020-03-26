@@ -32,7 +32,7 @@
 #menu-links {
   position: relative;
   display: flex;
-  padding-left: 100em;
+  padding-left: 75%;
   bottom: 10px;
 }
 
