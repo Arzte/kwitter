@@ -13,10 +13,10 @@ class Profile extends React.Component {
         <h1>Profile</h1>
         <div className="wrapper2">
           <div className="profileSide">
-            <MyProfile className="profile" />
+            <MyProfile />
           </div>
           <div className="userSide">
-            <UserList className="userlist" />
+            <UserList />
           </div>
         </div>
       </>
