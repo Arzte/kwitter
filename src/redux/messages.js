@@ -10,10 +10,10 @@ import {
 const url = domain + "/messages";
 
 const GETMESSAGES = createActions("getMessages");
-export const getMessages = () => dispatch => {
+export const getMessages = (limit = 100) => dispatch => {
   dispatch(GETMESSAGES.START());
 
-  return fetch(url + "/?limit=100&offset=0")
+  return fetch(url + `/?limit=${limit}&offset=0`)
     .then(handleJsonResponse)
     .then(result => {
       console.log(result);

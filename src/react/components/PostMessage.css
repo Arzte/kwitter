@@ -16,39 +16,12 @@
   src: local("Avenir-Roman"),
     url(../../fonts/AvenirLTStd-Roman.otf) format("opentype");
 }
-.menu-font {
+
+.question {
   font-family: avenir;
-  color: white;
-}
-.menu {
+  font-size: xx-large;
   color: #003367;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1em;
-  border-radius: 1em;
 }
-
-#menu-links {
-  position: relative;
-  display: flex;
-  padding-left: 75%;
-  bottom: 10px;
-}
-
-#menu-links a {
-  position: relative;
-  padding-right: 0.5em;
-  color: white;
-  text-decoration: underline;
-  cursor: pointer;
-}
-#id {
-  color: white;
-  width: 200px;
-  height: 200px;
-}
-.menu-logo {
-  width: 200px;
-  height: 150px;
+.button {
+  margin-left: 10px;
 }

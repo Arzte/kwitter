@@ -16,39 +16,31 @@
   src: local("Avenir-Roman"),
     url(../../fonts/AvenirLTStd-Roman.otf) format("opentype");
 }
-.menu-font {
+
+* {
   font-family: avenir;
-  color: white;
-}
-.menu {
-  color: #003367;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1em;
-  border-radius: 1em;
 }
 
-#menu-links {
-  position: relative;
-  display: flex;
-  padding-left: 75%;
-  bottom: 10px;
-}
+.wrapper1 {
+  background-color: #3f51b5;
+  height: fit-content;
+  width: fit-content;
 
-#menu-links a {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.card {
+  min-width: 600px;
   position: relative;
-  padding-right: 0.5em;
-  color: white;
-  text-decoration: underline;
-  cursor: pointer;
+  margin: 25px;
 }
-#id {
-  color: white;
-  width: 200px;
-  height: 200px;
+.displayName {
+  font-weight: bolder;
+  font-size: xx-large;
 }
-.menu-logo {
-  width: 200px;
-  height: 150px;
+.userName {
+  font-weight: bold;
+  font-size: larger;
 }
