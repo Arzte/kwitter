@@ -41,7 +41,9 @@ class MyProfile extends Component {
               </div>
               <div className="about">{this.props.getUserRes.user.about}</div>
             </CardContent>
-            <PostMessage />
+            {this.props.username === this.props.match.params.username && (
+              <PostMessage />
+            )}
           </Card>
         </div>
       );
@@ -51,7 +53,8 @@ class MyProfile extends Component {
 
 const mapStateToProps = state => {
   return {
-    getUserRes: state.users.getUser.result
+    getUserRes: state.users.getUser.result,
+    username: state.auth.login.result.username
   };
 };
 
