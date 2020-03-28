@@ -1,23 +1,23 @@
 import React, { Component } from "react";
-import { getaUser } from "../../redux/getUser";
+import { getUser } from "../../redux/users";
 import { connect } from "react-redux";
 import { userIsAuthenticated } from "../HOCs";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import "./MyProfile.css";
 import PostMessage from "./PostMessage";
+import { withRouter } from "react-router";
 
 class MyProfile extends Component {
   componentDidMount() {
-    this.props.getaUser(this.props.user);
+    this.props.getUser(this.props.match.params.username);
   }
   render() {
-    if (this.props.getUser === null) {
+    if (this.props.getUserRes === null) {
       return <div></div>;
     } else {
-      let domain =
-        "https://kwitter-api.herokuapp.com" +
-        this.props.getUser.user.pictureLocation;
+      let apiUrl = "https://kwitter-api.herokuapp.com";
+      console.log(this.props.getUserRes);
 
       return (
         <div className="wrapper1">
@@ -25,20 +25,25 @@ class MyProfile extends Component {
             <CardContent>
               <div className="pic">
                 <img
-                  src={domain}
+                  src={apiUrl + this.props.getUserRes.user.pictureLocation}
                   alt={
-                    this.props.getUser.user.displayName + "'s profile picture"
+                    this.props.getUserRes.user.displayName +
+                    "'s profile picture"
                   }
                 ></img>
               </div>
 
               <div className="displayName">
-                {this.props.getUser.user.displayName}
+                {this.props.getUserRes.user.displayName}
               </div>
-              <div className="userName">{this.props.getUser.user.username}</div>
-              <div className="about">{this.props.getUser.user.about}</div>
+              <div className="userName">
+                {this.props.getUserRes.user.username}
+              </div>
+              <div className="about">{this.props.getUserRes.user.about}</div>
             </CardContent>
-            <PostMessage />
+            {this.props.username === this.props.match.params.username && (
+              <PostMessage />
+            )}
           </Card>
         </div>
       );
@@ -48,14 +53,13 @@ class MyProfile extends Component {
 
 const mapStateToProps = state => {
   return {
-    messages: state.messages.getMessages.result,
-    user: state.auth.login.result.username,
-    getUser: state.getaUser.getaUser.result
+    getUserRes: state.users.getUser.result,
+    username: state.auth.login.result.username
   };
 };
 
 export default userIsAuthenticated(
   connect(mapStateToProps, {
-    getaUser
-  })(MyProfile)
+    getUser
+  })(withRouter(MyProfile))
 );
