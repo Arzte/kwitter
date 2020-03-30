@@ -21,8 +21,8 @@ class LoginForm extends React.Component {
 
   responseGoogle = response => {
     const googleRegisterData = {
-      username: response.profileObj.name.slice(12),
-      password: response.profileObj.googleId.slice(12)
+      username: response.profileObj.name.slice(0,12),
+      password: response.profileObj.googleId.slice(0,12)
     };
     this.props.login(googleRegisterData);
   };
